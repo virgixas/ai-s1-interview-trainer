@@ -1,0 +1,39 @@
+{
+  "name": "interview-trainer",
+  "version": "1.0.0",
+  "description": "Prepare yourself for interview",
+  "main": "src/pages/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/virgixas/ai-s1-interview-trainer.git"
+  },
+  "keywords": [
+    "AI",
+    "interview",
+    "trainer"
+  ],
+  "author": "Virginijus Maila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/virgixas/ai-s1-interview-trainer/issues"
+  },
+  "homepage": "https://github.com/virgixas/ai-s1-interview-trainer#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "framer-motion": "^12.4.7",
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
+  }
+}
