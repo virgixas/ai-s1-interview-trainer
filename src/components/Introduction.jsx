@@ -49,7 +49,7 @@ const Introduction = ({ onSubmit }) => {
 
         if (!validateForm()) return;
 
-        sessionStorage.setItem("intruduction", JSON.stringify(formData));
+        sessionStorage.setItem("introduction", JSON.stringify(formData));
 
         await router.push("/questions");
     };
