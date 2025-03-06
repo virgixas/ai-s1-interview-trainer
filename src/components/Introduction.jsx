@@ -49,8 +49,13 @@ const Introduction = ({ onSubmit }) => {
 
         if (!validateForm()) return;
 
-        sessionStorage.setItem("introduction", JSON.stringify(formData));
-
+        const res = await fetch("/api/session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userInput: formData }),
+        });
+        const data = await res.json();
+console.log(data);
         await router.push("/questions");
     };
 

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
+import {generateQuestion} from '../services/openai';
 
 const Question = () => {
     // State to manage question data
@@ -10,7 +11,7 @@ const Question = () => {
             console.log("Loading question...");
 
             // Call generateQuestion to get data
-            const result = await generateQuestion();
+            const result = await getQuestion();
             setQuestionData(result);
         } catch (error) {
             console.error("Error loading question:", error);
@@ -18,22 +19,22 @@ const Question = () => {
     };
 
     // Function to generate question (retrieves data from sessionStorage and processes it)
-    const generateQuestion = async () => {
-        if (typeof window === "undefined") {
-            console.error("Window is undefined (server-side)");
-            return null;
-        }
+    const getQuestion = async () => {
 
         // Access sessionStorage
-        const storedIntroduction = sessionStorage.getItem("introduction");
+        const fetchSessionData = async () => {
+            const res = await fetch("/api/session");
+            return await res.json(); // Output session data
+        };
 
-        if (!storedIntroduction) {
-            console.error("No introduction data found in sessionStorage");
-            return null;
-        }
+        const introduction = fetchSessionData();
+
 
         // Parse sessionStorage data
-        const introduction = JSON.parse(storedIntroduction);
+        // const introduction = JSON.parse(storedIntroduction);
+        const question = generateQuestion([], introduction.position, introduction.description);
+
+        console.log(question);
 
         // Generate question data (mock example/call question function)
         const { position, description } = introduction;

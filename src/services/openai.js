@@ -1,4 +1,5 @@
 const OpenAI = require('openai');
+require('dotenv').config();
 
 /*
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
@@ -11,8 +12,7 @@ export const generateQuestion = async (previousQuestions, position, description)
     const system = ``;
     const prompt = ``;
 
-    const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
-
+    const openai = new OpenAI({apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY});
     const completion = await openai.chat.completions.create({
         model: 'gpt-4o',
         messages: [
